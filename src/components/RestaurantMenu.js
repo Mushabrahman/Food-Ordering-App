@@ -8,8 +8,8 @@ import { addItem, removeItem, getTotalAmount } from '../utils/cartSlice';
 
 const RestaurantMenu = () => {
   const { id } = useParams();
-  // const dispatch = useDispatch();
-  // const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((store) => store.cart.items);
   const restaurant = useRestaurant(id);
 
   const restaurantInfo = restaurant?.cards?.[0]?.card?.card?.info;
@@ -143,7 +143,7 @@ const RestaurantMenu = () => {
                 </div>
 
                 <div className='absolute top-[72px] left-[50%] w-24 h-9 translate-x-[-50%] flex items-center justify-around bg-lime-500 hover:bg-lime-600 rounded text-sm text-white font-bold'>
-                  {/* <button
+                  <button
                     className='p-2'
                     onClick={() =>
                       cartItems[item?.card?.info?.id]?.quantity &&
@@ -151,19 +151,19 @@ const RestaurantMenu = () => {
                     }
                   >
                     <span>-</span>
-                  </button> */}
-                  {/* <div>
+                  </button>
+                  <div>
                     <span>
                       {cartItems[item?.card?.info?.id]?.quantity || 0}
                     </span>
-                  </div> */}
-                  {/* <button
+                  </div>
+                  <button
                     data-testid='add-btn'
                     className='p-2 z-30'
                     onClick={() => handleAddItem(item?.card?.info)}
                   >
                     <span>+</span>
-                  </button> */}
+                  </button>
                 </div>
               </div>
             </div>
